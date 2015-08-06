@@ -1,20 +1,108 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AlecDannyWeek6lab</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
 
-<%= yield %>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>twitter clone</title>
+  <!-- Custom Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tag %>
+</head>
+
+<body id="<%= params[:controller] %>" class="<%= params[:action] %>">
+    <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <%= link_to "twitter clone", root_path, :class => "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <p class="navbar-text pull-left">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text push-right">
+            <% if user_signed_in? %>
+              <li><small>Logged in as <strong><%= current_user.email %></strong></small></li>
+              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </ul>
+      </div>
+        <!-- /.navbar-collapse -->
+    </div>
+      <!-- /.container -->
+  </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+  <!-- <header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="site-heading">
+                    <h1></h1>
+                    <hr class="small">
+                    <h4 class="subheading"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+  </header> -->
+
+    <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12" style="height:40px;"></div>
+    </div>
+    <div class="row">
+        <div class="main-content col-xs-12">
+            <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+            <% end %>
+            <%= yield %>
+        </div>
+    </div>
+  </div>
+  <hr>
+
+    <!-- Footer -->
+  <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-md-pull-2">
+            <p class="copyright text-muted">Copyright &copy; Danny & Alec <%=Time.now.year%>. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 
 </body>
+
 </html>
