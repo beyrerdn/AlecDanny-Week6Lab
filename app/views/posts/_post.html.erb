@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-2 col-sm-3 col-xs-6 pic-preview">
+    <p>PICTURE HERE</p>
+  </div>
+  <div class="col-md-9 col-sm-8 col-xs-5">
+      <p class="post-body">
+        <%= post.body %>
+      </p>
+    <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em></p>
+  </div>
+</div>
