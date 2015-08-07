@@ -15,3 +15,16 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .welcome {
+   height: 500px;
+   color: white;
+   margin: 0;
+   padding: 0;
+   margin-left: 50px;
+   background: url('beaker.jpg') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   background-size: cover;
+   background-position: center;
+
+ }
