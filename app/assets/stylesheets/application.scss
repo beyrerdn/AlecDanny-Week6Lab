@@ -20,6 +20,7 @@
    height: 500px;
    color: white;
    margin: 0;
+   text-align: center;
    padding: 0;
    margin-left: 50px;
    background: url('beaker.jpg') no-repeat center center fixed;
@@ -28,3 +29,16 @@
    background-position: center;
 
  }
+
+ h1 {
+ 	font-family: Open sans;
+  text-align: center;
+  font-size: 108px;
+  margin-left: 60px;
+
+ }
+
+ ul {
+   font-family: Open sans;
+   list-style-type: none;
+   }
