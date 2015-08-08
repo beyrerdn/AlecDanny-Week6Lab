@@ -1,5 +1,7 @@
-<%= render partial: 'post', collection: @posts %>
-
 <% if user_signed_in? %>
   <%= link_to 'MEEP', new_post_path, class: "btn btn-default" %>
 <% end %>
+<div class="row">
+  <div class="col-xs-12" style="height:20px;"></div>
+</div>
+<%= render partial: 'post', collection: @posts %>
