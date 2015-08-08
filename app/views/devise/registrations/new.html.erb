@@ -14,6 +14,19 @@
         </div>
         <div class="row">
           <div class="field col-xs-8 col-sm-6">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <p><%= f.password_field :password, autocomplete: "off" %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field col-xs-8 col-sm-6 col-md-4 col-lg-3">
+            <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field col-xs-8 col-sm-6">
             <p><%= f.text_field :username , autofocus: true %></p>
           </div>
         </div>
@@ -34,18 +47,9 @@
         </div>
         <div class="row">
           <div class="field col-xs-8 col-sm-6">
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <p><%= f.password_field :password, autocomplete: "off" %></p>
+            <p><%= f.text_field :image %></p>
           </div>
         </div>
-        <div class="row">
-          <div class="field col-xs-8 col-sm-6 col-md-4 col-lg-3">
-            <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
-          </div>
-        </div>
-
         <div class="actions">
           <%= f.submit "Sign up" %>
         </div>
