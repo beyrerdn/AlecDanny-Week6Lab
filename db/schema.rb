@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807190323) do
+ActiveRecord::Schema.define(version: 20150808164351) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150807190323) do
     t.string   "last_name"
     t.string   "username"
     t.text     "bio"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
