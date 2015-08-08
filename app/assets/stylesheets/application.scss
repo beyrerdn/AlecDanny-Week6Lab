@@ -26,3 +26,20 @@
    background-size: cover;
    background-position: center;
  }
+
+img {
+   margin: 0;
+   padding: 0;
+   height: 10em;
+   width: 9em;
+   border-radius: 100%;
+   text-align: center;
+ }
+
+ .post {
+   border-top: 1px solid #d3d3d3;
+ }
+
+ .thumbnail {
+   border: none;
+ }
