@@ -28,19 +28,19 @@
    background-position: center;
  }
 
- h1 {
+ .welcome h1 {
  	font-family: Open sans;
   text-align: center;
   font-size: 6em;
   // margin-left: 70px;
  }
 
- ul {
+ .welcome ul {
    font-family: Open sans;
    list-style-type: none;
    }
 
-img {
+.welcome img {
    margin: 0;
    padding: 0;
    height: 10em;
@@ -49,7 +49,7 @@ img {
    text-align: center;
  }
 
- a {
+ .welcome a {
     color: #c0c0c0;
     font-size: 1.6em;
 }
