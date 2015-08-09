@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  post 'profiles/follow' => 'profiles#follow', as: :follow
+  post 'profiles/unfollow' => 'profiles#unfollow', as: :unfollow
+
   resources :profiles
   resources :posts
-
   devise_for :users, controllers: {
     confirmations:  "users/confirmations",
     # omniauth_callbacks: 'users/omniauth_callbacks'
