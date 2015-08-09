@@ -13,25 +13,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-
-    <div class="row">
-      <div class="field col-xs-8 col-sm-6">
-        <i>(leave blank if you don't want to change it)</i><br />
-        <p><%= f.text_field :username, autofocus: true %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="field col-xs-8 col-sm-6">
-        <i>(leave blank if you don't want to change it)</i><br />
-        <p><%= f.text_area :bio, autocomplete: "off", autofocus: true %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="field col-xs-8 col-sm-6">
-        <i>(leave blank if you don't want to change it)</i><br />
-        <p><%= f.text_field :image %></p>
-      </div>
-    </div>
+    
     <div class="row">
       <div class="field col-xs-8 col-sm-6">
         <i>(leave blank if you don't want to change it)</i><br />
