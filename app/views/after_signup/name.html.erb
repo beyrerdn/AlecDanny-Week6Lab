@@ -2,16 +2,10 @@
 
 <h2>Please, tell us your name.</h2>
 
-<%= bootstrap_form_for(@profile, url: wizard_path, method: :put) do |f| %>
-<div class="row">
-  <div class="field col-xs-8 col-sm-6">
-    <div class="field">
-      <%= f.text_area :first_name, autofocus: true %>
-      <%= f.text_area :last_name, autofocus: true %>
-      <%= f.submit "Next", :class => 'btn btn-primary' %>
-    </div>
-  </div>
-</div>
+<%= bootstrap_form_for(@user, :url => wizard_path, :method => :put) do |f| %>
+      <%= f.text_field :first_name, :placeholder => 'Kilgore', autofocus: true %>
+      <%= f.text_field :last_name, :placeholder => 'Trout', autofocus: true %>
+      <%= f.submit 'Next', :class => 'btn btn-primary' %>
 <% end %>
 
-<%= link_to "skip", next_wizard_path %>
+<!-- <%# link_to "skip", next_wizard_path %> -->

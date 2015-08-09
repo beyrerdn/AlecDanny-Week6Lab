@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :posts
 
   devise_for :users, controllers: {
-    confirmations:  'users/confirmations',
+    confirmations:  "users/confirmations",
     # omniauth_callbacks: 'users/omniauth_callbacks'
-    passwords:      'users/passwords',
-    registrations:  'users/registrations',
-    sessions:       'users/sessions',
-    unlocks:        'users/unlocks'
+    passwords:      "users/passwords",
+    registrations:  "users/registrations",
+    sessions:       "users/sessions",
+    unlocks:        "users/unlocks"
   }
 
   #Wicked Wizard
