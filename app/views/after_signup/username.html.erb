@@ -1,16 +1,9 @@
 <h2>Choose a username.</h2>
 
 <%= bootstrap_form_for(@user, url: wizard_path, method: :put) do |f| %>
-<div class="row">
-  <div class="field col-xs-8 col-sm-6">
-    <div class="field">
       <%= f.text_area :username, :placeholder => 'K!lg0r3Tr0ut4Lyf3', autofocus: true %>
-    </div>
-  </div>
-</div>
+      <%= f.submit 'Next', :class => 'btn btn-primary' %>
 <% end %>
 
-<div class="actions">
-  <%= f.submit "Next", :class => 'btn btn-primary' %>
-  or <%= link_to "skip", next_wizard_path %>
-</div>
+
+<!-- <%# link_to "skip", next_wizard_path %> -->
