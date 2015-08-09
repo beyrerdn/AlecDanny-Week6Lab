@@ -1,15 +1,23 @@
 class AfterSignupController < ApplicationController
   include Wicked::Wizard
 
-    steps :username, :bio, :image
+  steps :name, :username, :bio, :image
 
     def show
-      @user = current_user
-      render_wizard
+      binding.pry
+      @profile = current_user.profile
+      render_wizard(@profile)
     end
 
     def update
-      @user = current_user
-      render_wizard
+      @profile = current_user.profile
+      @profile.update(profile_params)
+      render_wizard(@profile)
     end
-  end
+
+    private
+
+    def profile_params
+      params.require(:profile).permit(:username, :first_name, :last_name, :bio, :image, :user_id)
+    end
+end

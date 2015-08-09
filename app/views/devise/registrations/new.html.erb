@@ -4,6 +4,7 @@
     <div class="register col-md-10">
       <h1>Sign up</h1>
 
+      <% resource.build_profile %>
       <%= bootstrap_form_for(resource, as: resource_name,
                             url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
@@ -25,19 +26,13 @@
             <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
           </div>
         </div>
-        <div class="row">
-          <div class="field col-xs-8 col-sm-6">
-            <p><%= f.text_field :first_name, autofocus: true %></p>
+          <%= f.fields_for :profile do |profile_form| %>
+            <p><%= profile_form.hidden_field :user_id %></p>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
           </div>
-        </div>
-        <div class="row">
-          <div class="field col-xs-8 col-sm-6">
-            <p><%= f.text_field :last_name, autofocus: true %></p>
-          </div>
-        </div>
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
 
         <br/>
         <%= render :partial => "devise/shared/links" %>
