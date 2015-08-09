@@ -11,7 +11,7 @@ class AfterSignupController < ApplicationController
 
     def update
       @user = current_user
-      @user.update_attributes(params[:user])
+      @user.update(user_params)
       render_wizard @user
     end
 
