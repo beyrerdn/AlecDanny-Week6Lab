@@ -5,19 +5,19 @@ class AfterSignupController < ApplicationController
 
     def show
       binding.pry
-      @profile = current_user.profile
-      render_wizard(@profile)
+      @user = current_user
+      render_wizard
     end
 
     def update
-      @profile = current_user.profile
-      @profile.update(profile_params)
-      render_wizard(@profile)
+      @user = current_user
+      @user.update(user_params)
+      render_wizard(@user)
     end
 
     private
 
-    def profile_params
-      params.require(:profile).permit(:username, :first_name, :last_name, :bio, :image, :user_id)
+    def user_params
+      params.require(:user).permit(:username, :first_name, :last_name, :bio, :image)
     end
 end

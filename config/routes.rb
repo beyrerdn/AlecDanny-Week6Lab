@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
 
-  devise_for :users, controller: {
+  devise_for :users, controllers: {
     confirmations:  'users/confirmations',
     # omniauth_callbacks: 'users/omniauth_callbacks'
     passwords:      'users/passwords',

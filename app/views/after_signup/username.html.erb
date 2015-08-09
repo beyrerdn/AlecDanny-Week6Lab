@@ -5,12 +5,11 @@
   <div class="field col-xs-8 col-sm-6">
     <div class="field">
       <%= f.text_area :username, :placeholder => 'username' autofocus: true %>
+      <%= f.submit "Next", :class => 'btn btn-primary' %>
     </div>
   </div>
 </div>
 <% end %>
 
-<div class="actions">
-  <%= f.submit "Next", :class => 'btn btn-primary' %>
-  or <%= link_to "skip", next_wizard_path %>
-</div>
+
+<%= link_to "skip", next_wizard_path %>
