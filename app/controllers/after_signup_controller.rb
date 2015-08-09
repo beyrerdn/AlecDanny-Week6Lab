@@ -21,7 +21,4 @@ class AfterSignupController < ApplicationController
       params.require(:user).permit(:username, :first_name, :last_name, :bio, :image)
     end
 
-    def redirect_to_finish_wizard
-      redirect_to post_path, notice: "Thank you for signing up."
-    end
 end

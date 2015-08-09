@@ -1,15 +1,8 @@
 <h2>Finally, provide a URL for your profile image.</h2>
 
 <%= bootstrap_form_for(@user, url: wizard_path, method: :put) do |f| %>
-<div class="row">
-  <div class="field col-xs-8 col-sm-6">
-    <div class="field">
       <%= f.text_field :image, :placeholder => 'http://placekitten.com/200/300', autofocus: true %>
-    </div>
-  </div>
-</div>
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
 <% end %>
 
-<div class="actions">
-  <%= f.submit "Submit", :class => 'btn btn-primary' %>
-</div>
+<!-- <%# link_to "skip", next_wizard_path %> -->

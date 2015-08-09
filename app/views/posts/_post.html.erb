@@ -2,15 +2,14 @@
   <div class="post">
     <div class="avitar col-lg-1 col-md-2 col-xs-4 pic-preview">
       <a href="#" class="thumbnail">
-        <img src="<%#post.user.image%>" alt="Missing Image">
+        <img src="<%=post.user.image%>" alt="Missing Image">
       </a>
     </div>
-    <!-- <div class="col-lg-9 col-lg-offset-2 col-md-9 col-md-offset-2 col-xs-7 col-xs-offset-4" style="height:30px;"></div> -->
     <div class="col-lg-10 col-md-9 col-sm-8 col-xs-5">
         <p class="post-body">
           <%= post.body %>
         </p>
-      <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.email %></em></p>
+      <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.username %></em></p>
     </div>
   </div>
 </div>
