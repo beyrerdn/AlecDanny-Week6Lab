@@ -13,8 +13,11 @@
         </p>
       <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.username %></em></p>
       <% if (post.user != current_user) %>
-        <p><em><%= link_to "follow #{post.user.username}", follow_path(locals: {username: post.user.username}) %></em></p>
-        <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path(locals: {username: post.user.username}) %></em></p>
+        <% if !current_user.following?(post.user) %>
+          <p><em><%= link_to "follow #{post.user.username}", follow_path( id: post.user.id ) %></em></p>
+        <% elsif current_user.following?(post.user) %>
+          <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path( id: post.user.id ) %></em></p>
+        <% end %>
       <% end %>
     </div>
   </div>

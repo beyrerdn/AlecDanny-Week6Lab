@@ -2,10 +2,15 @@
 <div class="profile col-xs-12">
   <div class="thumbnail col-lg-1 col-md-2 col-xs-4">
     <img src="<%=@user.image%>" alt="Missing Image">
+    <p><strong><%= @user.first_name + " " + @user.last_name %></strong></p>
   </div>
   <h3><%= @user.bio %></h3>
   <p><em>Following: <%= @user.follows.count %></em></p>
+  <% if @user == current_user %>
+    <%= link_to 'Find users to follow!', posts_path %>
+  <% end %> <br />
+  <%= link_to 'MEEP!', new_post_path, class: "btn btn-primary" %>
 </div>
 
 <%= render partial: "posts/post", :collection => @posts %>
-<%# paginate @posts %>
+<%= paginate @posts %>
