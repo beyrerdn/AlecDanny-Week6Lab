@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, :only => [:user_page]
+  before_action :set_user, :only => [:user_page, :follow, :unfollow]
 
   def index
     @profiles = Profile.all

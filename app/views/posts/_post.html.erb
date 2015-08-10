@@ -1,15 +1,21 @@
 <div class="row">
   <div class="post">
     <div class="avitar col-lg-1 col-md-2 col-xs-4 pic-preview">
-      <div class="thumbnail">
-        <img src="<%=post.user.image%>" alt="Missing Image">
-      </div>
+      <%= link_to user_page_path(username: post.user.username) do %>
+        <div class="thumbnail">
+          <img src="<%=post.user.image%>" alt="Missing Image"/>
+        </div>
+      <% end %>
     </div>
     <div class="col-lg-10 col-md-9 col-sm-8 col-xs-5">
         <p class="post-body">
           <%= post.body %>
         </p>
       <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.username %></em></p>
+      <% if (post.user != current_user) %>
+        <p><em><%= link_to "follow #{post.user.username}", follow_path(locals: {username: post.user.username}) %></em></p>
+        <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path(locals: {username: post.user.username}) %></em></p>
+      <% end %>
     </div>
   </div>
 </div>

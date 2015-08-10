@@ -3,7 +3,8 @@
   <div class="thumbnail col-lg-1 col-md-2 col-xs-4">
     <img src="<%=@user.image%>" alt="Missing Image">
   </div>
-  <p><%= @user.bio %></p>
+  <h3><%= @user.bio %></h3>
+  <p><em>Following: <%= @user.follows.count %></em></p>
 </div>
 
 <%= render partial: "posts/post", :collection => @posts %>
