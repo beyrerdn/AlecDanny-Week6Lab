@@ -20,15 +20,17 @@ Rails.application.routes.draw do
   #Wicked Wizard
   resources :after_signup
 
+  #http://stackoverflow.com/questions/18997874/devise-with-rails-4-authenticated-root-route-not-working
   authenticated :user do
     devise_scope :user do
       root to: "profiles#current_user_page", :as => "authenticated_root"
     end
   end
 
+  #http://stackoverflow.com/questions/18997874/devise-with-rails-4-authenticated-root-route-not-working
   unauthenticated do
     devise_scope :user do
-      root to: "posts#welcome_page", :as => "unauthenticated_root"
+      root to: "posts#index", :as => "unauthenticated_root"
     end
   end
 
