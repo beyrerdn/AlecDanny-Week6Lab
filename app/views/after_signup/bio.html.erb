@@ -1,0 +1,8 @@
+<h2>Provide a bio to share your story with your fellow Meepers.</h2>
+
+<%= bootstrap_form_for(@user, url: wizard_path, method: :put) do |f| %>
+      <%= f.text_area :bio, autofocus: true %>
+      <%= f.submit "Next", :class => 'btn btn-primary' %>
+<% end %>
+
+<!-- <%# link_to "skip", next_wizard_path %> -->

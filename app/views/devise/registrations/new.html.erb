@@ -1,0 +1,38 @@
+<!-- Borrowed brom a S.O. article to learn about Profiles for Devise users -->
+<div class="container">
+  <div class="row">
+    <div class="register col-md-10">
+      <h1>Sign up</h1>
+
+      <%= bootstrap_form_for(resource, as: resource_name,
+                            url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+        <div class="row">
+          <div class="field col-xs-8 col-sm-6">
+            <p><%= f.email_field :email, autofocus: true %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field col-xs-8 col-sm-6">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <p><%= f.password_field :password, autocomplete: "off" %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field col-xs-8 col-sm-6 col-md-4 col-lg-3">
+            <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+          </div>
+        </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+
+        <br/>
+        <%= render :partial => "devise/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+</div>
