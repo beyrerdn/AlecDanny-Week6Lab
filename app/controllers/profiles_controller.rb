@@ -9,6 +9,10 @@ class ProfilesController < ApplicationController
     @posts = Post.timeline(@user).page params[:page]
   end
 
+  def current_user_page
+    redirect_to user_page_path(:username => current_user.username)
+  end
+
   def show
   end
 
