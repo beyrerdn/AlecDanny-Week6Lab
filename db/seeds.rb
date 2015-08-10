@@ -14,9 +14,10 @@
             :last_name => Faker::Name.last_name,
             :username => Faker::Internet.user_name,
             :bio=> Faker::Lorem.paragraph(2),
-            :image => Faker::Avatar.image)
+            :image => Faker::Avatar.image,
+            :created_at => (1..12).to_a.sample.months.ago )
   10.times do
-    user.posts << Post.create( :body => Faker::Company.catch_phrase )
+    user.posts << Post.create( :body => Faker::Lorem.sentence(1), :created_at => (1..12).to_a.sample.months.ago  )
   end
 end
 
@@ -27,8 +28,9 @@ test_user = User.create(
           :last_name => "Trout",
           :username => "test_user",
           :bio=> Faker::Lorem.paragraph(2),
-          :image => "http://lorempixel.com/output/people-h-c-309-326-6.jpg")
+          :image => "http://lorempixel.com/output/people-h-c-309-326-6.jpg",
+          :created_at => (1..12).to_a.sample.months.ago )
 
 10.times do
-  test_user.posts << Post.create( :body => Faker::Company.catch_phrase )
+  test_user.posts << Post.create( :body => Faker::Lorem.sentence(1), :created_at => (1..12).to_a.sample.months.ago )
 end
