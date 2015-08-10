@@ -21,7 +21,6 @@
     <!-- Navigation -->
   <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
-    <% if user_signed_in? %>
       <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -31,27 +30,30 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <% if current_user.username %>
+            <% if user_signed_in? %>
               <%= link_to "meeper", user_page_path(:username => current_user.username), :class => "navbar-brand" %>
+            <% else %>
+              <%= link_to "meeper", posts_path, :class => "navbar-brand" %>
             <% end %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-left">
-            <p class="navbar-text pull-left">
-          </ul>
           <ul class="nav navbar-nav navbar-right">
             <p class="navbar-text push-right">
+              <% if user_signed_in? %>
                 <li><small>Logged in as <strong>@<%= current_user.username %></strong></small></li>
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <% elsif !user_signed_in? %>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+                <li><%= link_to "Login", new_user_session_path %></li>
+              <% end %>
           </ul>
         </div>
           <!-- /.navbar-collapse -->
       </div>
         <!-- /.container -->
-    <% end %>
   </nav>
 
     <!-- Page Header -->
