@@ -1,7 +1,12 @@
 class ProfilesController < ApplicationController
+  before_action :set_user, :only => [:user_page]
 
   def index
     @profiles = Profile.all
+  end
+
+  def user_page
+    @posts = Post.timeline(@user)
   end
 
   def show
@@ -77,12 +82,12 @@ class ProfilesController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_Profile
+  def set_profile
     @profile = Profile.find(params[:id])
   end
 
   def set_user
-    @user = User.find_by "username = ?", params[:username]
+    @user = User.find_by("username = ?", params[:username])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

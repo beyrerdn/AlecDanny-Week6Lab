@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    redirect_to posts_path
   end
 
   # GET /posts/new
