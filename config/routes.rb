@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'posts#welcome_page'
 
   get 'profiles/:id/follow' => 'profiles#follow', as: :follow
   get 'profiles/:id/unfollow' => 'profiles#unfollow', as: :unfollow
@@ -21,6 +20,16 @@ Rails.application.routes.draw do
   #Wicked Wizard
   resources :after_signup
 
+  authenticated :user do
+    devise_scope :user do
+      root to: "profiles#current_user_page", :as => "authenticated_root"
+    end
+  end
 
+  unauthenticated do
+    devise_scope :user do
+      root to: "posts#welcome_page", :as => "unauthenticated_root"
+    end
+  end
 
 end
