@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%= link_to "meeper", posts_path, :class => "navbar-brand" %>
+            <%= link_to "meeper", user_page_path(:username => current_user.username), :class => "navbar-brand" %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +41,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <p class="navbar-text push-right">
-                <li><small>Logged in as <strong><%= current_user.email %></strong></small></li>
+                <li><small>Logged in as <strong>@<%= current_user.username %></strong></small></li>
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           </ul>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  post 'profiles/follow' => 'profiles#follow', as: :follow
-  post 'profiles/unfollow' => 'profiles#unfollow', as: :unfollow
+  root 'posts#welcome_page'
 
-  get 'users/:username' => 'profiles#user_page', as: :user_page
+  get 'profiles/:id/follow' => 'profiles#follow', as: :follow
+  get 'profiles/:id/unfollow' => 'profiles#unfollow', as: :unfollow
+
+  get 'profiles/users/:username' => 'profiles#user_page', as: :user_page
 
   resources :profiles
   resources :posts
@@ -19,6 +21,6 @@ Rails.application.routes.draw do
   #Wicked Wizard
   resources :after_signup
 
-  root 'posts#welcome_page'
+
 
 end

@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def user_page
-    @posts = Post.timeline(@user)
+    @posts = Post.timeline(@user).page params[:page]
   end
 
   def show
@@ -33,6 +33,7 @@ class ProfilesController < ApplicationController
   end
 
   def follow
+    @user = User.find(params[:id])
     if current_user
       if current_user == @user
         flash[:error] = "You can't follow yourself."
@@ -49,6 +50,7 @@ class ProfilesController < ApplicationController
   end
 
   def unfollow
+    @user = User.find(params[:id])
     if current_user
       current_user.stop_following(@user)
       flash[:notice] = "You are no longer following #{@user.username}."
@@ -57,7 +59,6 @@ class ProfilesController < ApplicationController
       flash[:error] = "You must sign in to unfollow #{@user.username}."
     end
   end
-
 
   def update
     respond_to do |format|
@@ -87,6 +88,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_user
+    # binding.pry
     @user = User.find_by("username = ?", params[:username])
   end
 
