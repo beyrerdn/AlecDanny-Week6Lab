@@ -28,6 +28,7 @@ test_user = User.create(
           :username => "test_user",
           :bio=> Faker::Lorem.paragraph(2),
           :image => "http://lorempixel.com/output/people-h-c-309-326-6.jpg")
+
 10.times do
   test_user.posts << Post.create( :body => Faker::Company.catch_phrase )
 end

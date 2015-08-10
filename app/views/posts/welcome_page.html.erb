@@ -6,7 +6,7 @@
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li><%= link_to "Login", new_user_session_path %></li>
       </ul>
-      <% else%>
+      <% else %>
       <ul>
         <li><%= link_to "Your profile", user_page_path(:username => current_user.username) %></li>
       </ul>
