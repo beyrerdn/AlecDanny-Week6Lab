@@ -1,15 +1,27 @@
 <h1>@<%= @user.username + "'s Profile" %></h1>
 <div class="profile col-xs-12">
-  <div class="thumbnail col-lg-1 col-md-2 col-xs-4">
-    <img src="<%=@user.image%>" alt="Missing Image">
-    <p><strong><%= @user.first_name + " " + @user.last_name %></strong></p>
+  <div class="avatar col-lg-2 col-md-2 col-sm-3 col-xs-6">
+    <div class="row">
+      <div class="thumbnail">
+          <img src="<%=@user.image%>" alt="Missing Image">
+      </div>
+    </div>
+    <div class="row">
+      <p><strong><%= @user.first_name + " " + @user.last_name %></strong></p>
+      <ul class="list-inline">
+        <li><em>MEEPS: <%= @user.posts.count %></em></li>
+        <li><em>FOLLOWING: <%= @user.follows.count %></em></li>
+        <li><em>FOLLOWERS: <%= @user.followers.count %></em></li>
+      </ul>
+    </div>
   </div>
-  <h3><%= @user.bio %></h3>
-  <p><em>Following: <%= @user.follows.count %></em></p>
-  <% if @user == current_user %>
-    <%= link_to 'Find users to follow!', posts_path %>
-  <% end %> <br />
-  <%= link_to 'MEEP!', new_post_path, class: "btn btn-primary" %>
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-6">
+    <h3><%= @user.bio %></h3>
+    <% if @user == current_user %>
+      <%= link_to 'Find users to follow!', posts_path %><br />
+    <% end %>
+    <%= link_to 'MEEP!', new_post_path, class: "btn btn-primary" %>
+  </div>
 </div>
 
 <%= render partial: "posts/post", :collection => @posts %>

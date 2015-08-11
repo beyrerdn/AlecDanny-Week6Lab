@@ -1,6 +1,6 @@
 <div class="row">
   <div class="post">
-    <div class="avitar col-lg-1 col-md-2 col-xs-4 pic-preview">
+    <div class="avitar col-md-2 col-sm-3 col-xs-6">
       <%= link_to user_page_path(username: post.user.username) do %>
         <div class="thumbnail">
           <img src="<%=post.user.image%>" alt="Missing Image"/>
@@ -12,11 +12,11 @@
           <%= post.body %>
         </p>
       <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.username %></em></p>
-      <% if (post.user != current_user) %>
+      <% if current_user && (post.user != current_user) %>
         <% if !current_user.following?(post.user) %>
-          <p><em><%= link_to "follow #{post.user.username}", follow_path( id: post.user.id ) %></em></p>
+          <p><em><%= link_to "follow #{post.user.username}", follow_path( id: post.user.id ), class: "btn btn-primary" %></em></p>
         <% elsif current_user.following?(post.user) %>
-          <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path( id: post.user.id ) %></em></p>
+          <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path( id: post.user.id ), class: "btn btn-primary" %></em></p>
         <% end %>
       <% end %>
     </div>
