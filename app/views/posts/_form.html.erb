@@ -15,9 +15,6 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id if current_user %>
-  </div>
   <div class="actions">
     <%= f.submit 'MEEP', :class => 'btn btn-primary' %>
   </div>
