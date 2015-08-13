@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 
   def user_page
     @posts = Post.timeline(@user).page params[:page]
+    @post = Post.new
   end
 
   def current_user_page

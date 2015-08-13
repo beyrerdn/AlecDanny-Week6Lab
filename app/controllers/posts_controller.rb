@@ -44,7 +44,7 @@ class PostsController < ApplicationController
         format.js {}
       end
     end
-    
+
   end
 
   # PATCH/PUT /posts/1

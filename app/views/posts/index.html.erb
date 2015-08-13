@@ -2,8 +2,6 @@
   <%= link_to "MEEP!", new_post_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "#newPost" %>
 <% end %>
 
-<%= render :partial => 'posts/form', :layout => 'layouts/modal', :locals => {:title => "A new MEEP", :id => "#newPost"} %>
-
 <div class="row">
   <div class="col-xs-12" style="height:20px;"></div>
 </div>

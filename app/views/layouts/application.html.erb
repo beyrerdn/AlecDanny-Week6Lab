@@ -13,6 +13,7 @@
   <!-- Custom Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tag %>
 </head>
@@ -36,38 +37,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <p class="navbar-text push-right">
-              <% if user_signed_in? %>
-                <li><small>Logged in as <strong>@<%= current_user.username %></strong></small></li>
-                <li><%= link_to 'Profile Home', user_page_path(:username => current_user.username) %></li>
-                <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-              <% elsif !user_signed_in? %>
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-                <li><%= link_to "Login", new_user_session_path %></li>
-              <% end %>
+            <%= render :partial => 'shared/login_bar', :locals => {:current_user => current_user} %>
           </ul>
         </div>
           <!-- /.navbar-collapse -->
       </div>
         <!-- /.container -->
   </nav>
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-  <!-- <header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="site-heading">
-                    <h1></h1>
-                    <hr class="small">
-                    <h4 class="subheading"></h4>
-                </div>
-            </div>
-        </div>
-    </div>
-  </header> -->
 
     <!-- Main Content -->
   <div class="container-fluid">
@@ -99,8 +75,7 @@
       </div>
   </footer>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  <%= render :partial => 'posts/form', :layout => 'layouts/modal', :locals => {:title => "A new MEEP", :id => "newPost"} %>
 
 </body>
 
