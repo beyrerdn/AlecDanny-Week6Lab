@@ -1,8 +1,15 @@
 <% if user_signed_in? %>
-  <%= link_to 'MEEP!', new_post_path, class: "btn btn-primary" %>
+  <%= link_to "MEEP!", new_post_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "#newPost" %>
 <% end %>
+
+<%= render :partial => 'posts/form', :layout => 'layouts/modal', :locals => {:title => "A new MEEP", :id => "#newPost"} %>
+
 <div class="row">
   <div class="col-xs-12" style="height:20px;"></div>
 </div>
-<%= render partial: 'post', collection: @posts %>
+
+<!-- Need this tag in order to have a spot to 'prepend' a new post  -->
+<div id="posts_list">
+  <%= render partial: 'post', collection: @posts %>
+</div>
 <%= paginate @posts %>

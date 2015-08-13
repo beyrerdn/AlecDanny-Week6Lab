@@ -12,13 +12,11 @@
           <%= post.body %>
         </p>
       <p><em>submitted <%= time_ago_in_words(post.created_at) %> ago by @<%= post.user.username %></em></p>
-      <% if current_user && (post.user != current_user) %>
-        <% if !current_user.following?(post.user) %>
-          <p><em><%= link_to "follow #{post.user.username}", follow_path( id: post.user.id ), remote: true, class: "btn btn-primary" %></em></p>
-        <% elsif current_user.following?(post.user) %>
-          <p><em><%= link_to "unfollow #{post.user.username}", unfollow_path( id: post.user.id ), remote: true, class: "btn btn-primary" %></em></p>
+        <% if current_user && (post.user != current_user) %>
+          <div class="user-<%=post.user.id%>">
+            <%= render :partial => 'posts/followlinks', :locals => {user: post.user} %>
+          </div>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>

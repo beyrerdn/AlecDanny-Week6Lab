@@ -1,0 +1,2 @@
+$("#newPost").modal('hide');
+$('#posts_list').prepend("<%= escape_javascript(render :partial => 'posts/post', :locals => {:post => @post}) %>");

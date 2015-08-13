@@ -20,7 +20,11 @@
     <% if @user == current_user %>
       <%= link_to 'Find users to follow!', posts_path %><br />
     <% end %>
-    <%= link_to 'MEEP!', new_post_path, class: "btn btn-primary" %>
+
+    <% if user_signed_in? %>
+      <%= link_to "MEEP!", new_post_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "#newPost" %>
+    <% end %>
+
   </div>
 </div>
 

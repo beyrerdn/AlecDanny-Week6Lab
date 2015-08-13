@@ -1,0 +1,5 @@
+<% if !current_user.following?(user) %>
+  <p><em><%= link_to "follow", follow_path( id: user.id ), remote: true, class: "btn btn-primary" %></em></p>
+<% elsif current_user.following?(user) %>
+  <p><em><%= link_to "unfollow", unfollow_path( id: user.id ), remote: true, class: "btn btn-primary" %></em></p>
+<% end %>

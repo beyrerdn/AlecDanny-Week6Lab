@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order(created_at: :desc).page params[:page]
+    @post = Post.new
   end
 
   def welcome_page
@@ -36,11 +37,14 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
+    
   end
 
   # PATCH/PUT /posts/1
